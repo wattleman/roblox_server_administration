@@ -10,6 +10,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="css/app.css">
+
+
         <style>
             html, body {
                 background-color: #fff;
@@ -98,3 +101,5 @@
         </div>
     </body>
 </html>
+
+<script src="js/app.js" charset="utf-8"></script>
