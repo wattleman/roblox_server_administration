@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/login.ccs">
 
 
-        <style>
+        {{-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -64,8 +64,8 @@
 
             .m-b-md {
                 margin-bottom: 30px;
-            }
-        </style>
+            } --}}
+        {{-- </style> --}}
     </head>
     <body>
   <div class="container">
