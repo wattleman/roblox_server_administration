@@ -37,9 +37,7 @@ Route::post('/checkGameAuth', function() {
         $game = Game::where('password', $password)->get();
         if( $game ){
             //return response("Game authorized.")->header('Content-Type', 'text-plain');
-            return Response::json([
-                'result' => 'Game authorized.'
-            ], 200);
+            return response()->json(['results' => 'Game Authorized.'], 200);
         }else{
             //return response("Invalid password.")->header('Content-Type', 'text-plain');
         }
