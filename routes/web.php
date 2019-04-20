@@ -37,19 +37,15 @@ Route::post('/checkGameAuth', function() {
         $game = Game::where('password', $password)->get();
         if( $game ){
             //return response("Game authorized.")->header('Content-Type', 'text-plain');
-            $contents = "Game authorized.";
+            return Response::json([
+                'result' => 'Game authorized.'
+            ], 200);
         }else{
             //return response("Invalid password.")->header('Content-Type', 'text-plain');
-            $contents = "Invalid password.";
         }
     }else{
         //return respone("No game found.")->header('Content-Type', 'text-plain');
-        $contents = "Game not whitelisted.";
     }
-
-    $response = Response::make($contents, 200);
-    $response->header('Content-Type', 'text-plain');
-    return $response;
 
     if($result){
         return true;
