@@ -30,7 +30,7 @@ Route::post('/checkGameAuth', function() {
     $id = $_POST['gameID'];
     $password = $_POST['password'];
 
-    $game = Game::Where('game_id', $id)->get();
+    $game = Game::Where('place_id', $id)->get();
 
     if( $game ){
         $game = Game::where('password', $password)->get();
