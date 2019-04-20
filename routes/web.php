@@ -24,8 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/checkGameAuth', function() {
 
-    $result = false;
-
     $_POST = json_decode(file_get_contents('php://input'), true);
 
     $id = $_POST['gameID'];
@@ -33,6 +31,7 @@ Route::post('/checkGameAuth', function() {
 
     $game = Game::Where('place_id', $id)->first();
 
+    /*Method to define if game exists and password is correct or not.
     if( $game ){
         $game = $game->where('password',$password)->first();
         if( $game ){
@@ -43,11 +42,19 @@ Route::post('/checkGameAuth', function() {
     }else{
         return response("Game not found.")->header('Content-Type', 'text-plain');
     }
+    */
 
-    if($result){
-        return true;
+    /*Method to just desplay if authorized or not. Will respond with invalid credientials if wrong password or gameID
+        Prevents people from pinging games to check if they have services installed.
+    */
+    if( $game ){
+        $game = $game->where('password',$password)->first();
+        if( $game ){
+            return response("Game authorized.")->header('Content-Type', 'text-plain');
+        }
     }else{
-        return false;
+        return response("Invalid credientals.")->header('Content-Type', 'text-plain');
     }
+
 
 });
