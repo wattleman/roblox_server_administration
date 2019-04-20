@@ -17,6 +17,7 @@ class CreateGamesTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('place_id')->unsigned()->unique();
+            $table->string('password')->nullable();
             $table->boolean('allow_generic_admins')->default(true);
             //$table->boolean('allow_group_admins')->default(false);
             $table->boolean('active')->default(true);
