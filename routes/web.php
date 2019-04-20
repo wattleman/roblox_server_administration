@@ -23,13 +23,15 @@ Route::post('/checkGameAuth', function() {
 
     $result = false;
 
+    $_POST = json_decode(file_get_contents('php://input'), true);
+
     $id = $_POST['gameID'];
     $password = $_POST['password'];
 
-    $game = Game::Where('game_id', $id)->first();
+    $game = Game::Where('game_id', $id)->get();
 
     if( $game ){
-        $game = Game::where('password', $password)->first();
+        $game = Game::where('password', $password)->get();
         if( $game ){
             return "Game authorized.";
         }else{
