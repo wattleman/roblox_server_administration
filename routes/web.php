@@ -52,9 +52,8 @@ Route::post('/checkGameAuth', function() {
         if( $game ){
             return response("Game authorized.")->header('Content-Type', 'text-plain');
         }
-    }else{
-        return response("Invalid credientals.")->header('Content-Type', 'text-plain');
     }
+    return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
 
 
 });
