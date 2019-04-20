@@ -31,10 +31,10 @@ Route::post('/checkGameAuth', function() {
     $id = $_POST['gameID'];
     $password = $_POST['password'];
 
-    $game = Game::Where('place_id', $id)->get();
+    $game = Game::Where('place_id', $id)->first();
 
     if( $game ){
-        $game = $game->where('password',$password)->get();
+        $game = $game->where('password',$password)->first();
         if( $game ){
             return response("Game authorized.")->header('Content-Type', 'text-plain');
         }else{
