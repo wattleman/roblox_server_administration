@@ -34,7 +34,7 @@ Route::post('/checkGameAuth', function() {
     $game = Game::Where('place_id', $id)->get();
 
     if( $game ){
-        $game = Game::where('password', $password)->get();
+        $game = $game->where('password',$password)->get();
         if( $game ){
             return response("Game authorized.")->header('Content-Type', 'text-plain');
         }else{
