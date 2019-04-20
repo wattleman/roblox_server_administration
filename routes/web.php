@@ -41,7 +41,7 @@ Route::post('/checkGameAuth', function() {
             return response("Invalid password.")->header('Content-Type', 'text-plain');
         }
     }else{
-        return respone("No game found.")->header('Content-Type', 'text-plain');
+        return response("Game now found.")->header('Content-Type', 'text-plain');
     }
 
     if($result){
