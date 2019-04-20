@@ -18,3 +18,31 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/checkGameAuth', function() {
+
+    $result = false;
+
+    $id = $_POST['gameID'];
+    $password = $_POST['password'];
+
+    $game = Game::Where('game_id', $id)->first();
+
+    if( $game ){
+        $game = Game::where('password', $password)->first();
+        if( $game ){
+            return "Game authorized.";
+        }else{
+            return "Invalid password.";
+        }
+    }else{
+        return "No game found.";
+    }
+
+    if($result){
+        return true;
+    }else{
+        return false;
+    }
+
+});
