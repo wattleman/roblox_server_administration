@@ -1,6 +1,7 @@
 <?php
 
 use App\Game;
+use Symfony\Component\HttpFoundation\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +36,20 @@ Route::post('/checkGameAuth', function() {
     if( $game ){
         $game = Game::where('password', $password)->get();
         if( $game ){
-            return response("Game authorized.")->header('Content-Type', 'text-plain');
+            //return response("Game authorized.")->header('Content-Type', 'text-plain');
+            $contents = "Game authorized.";
         }else{
-            return response("Invalid password.")->header('Content-Type', 'text-plain');
+            //return response("Invalid password.")->header('Content-Type', 'text-plain');
+            $contents = "Invalid password.";
         }
     }else{
-        return respone("No game found.")->header('Content-Type', 'text-plain');
+        //return respone("No game found.")->header('Content-Type', 'text-plain');
+        $contents = "Game not whitelisted.";
     }
+
+    $response = Response::make($contents, 200);
+    $response->header('Content-Type', 'text-plain');
+    return $response;
 
     if($result){
         return true;
