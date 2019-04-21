@@ -16,7 +16,7 @@ class CreateCallsTable extends Migration
         Schema::create('calls', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('place_id')->unsigned()->unique();
+            $table->bigInteger('place_id')->unsigned();
             $table->string('server_id')->default("Error");
 
             $table->string('caller')->default('Unknown');
