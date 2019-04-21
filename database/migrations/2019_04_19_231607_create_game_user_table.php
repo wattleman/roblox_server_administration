@@ -31,8 +31,6 @@ class CreateGameUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('game_user', function (Blueprint $table) {
-            Schema::dropIfExists('game_user');
-        });
+        Schema::dropIfExists('game_user');
     }
 }
