@@ -17,7 +17,7 @@ class CreateCallsTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('place_id')->unsigned()->unique();
-            $table->bigInteger('server_id')->unsigned()->unique();
+            $table->string('server_id')->default("Error");
 
             $table->string('caller')->default('Unknown');
 
