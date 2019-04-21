@@ -23,13 +23,8 @@ class CallsController extends Controller
         $game = Game::findOrFail($gameID);
 
         if($game->checkAuth($password)){
-            $call = new Call;
-            $call->place_id = $gameID;
-            $call->server_id = $serverID;
-            $call->caller = $reporting_user;
-            $call->reported_user = $reported_user;
-            $call->call_details = $call_description;
-            $call->save();
+
+            Call::create(['place_id' => $gameID, 'server_id' => $serverID, 'caller' => $reporting_user, 'reported_user' => $reported_user, 'call_details' => $call_description]);
 
             return response("Call created.")->header('Content-Type', 'text-plain');
         }else{
