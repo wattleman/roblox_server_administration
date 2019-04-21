@@ -13,7 +13,7 @@ class CreateGameUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('game_user', function (Blueprint $table) {
+        Schema::create('game_user', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('game_id')->unsigned();
             $table->bigInteger('roblox_user')->unsigned();
