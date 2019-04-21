@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Call;
 use App\Game;
+use Illuminate\Support\Facades\DB;
+
 
 class CallsController extends Controller
 {
