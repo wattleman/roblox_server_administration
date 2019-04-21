@@ -8,16 +8,17 @@ use App\Game;
 
 class GameController extends Controller
 {
-    public function checkAuth($from = "roblox"){
+    public function checkAuth($from = "roblox", $id, $password){
 
         if($from = "roblox"){
             $_POST = json_decode(file_get_contents('php://input'), true);
+             $id = $_POST['gameID'];
+            $password = $_POST['password'];
         }
 
 
 
-        $id = $_POST['gameID'];
-        $password = $_POST['password'];
+
 
         $game = Game::Where('place_id', $id)->where('password',$password)->first();
         if($game && ($game->active == 1)){
