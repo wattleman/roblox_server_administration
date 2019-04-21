@@ -20,7 +20,7 @@ class CallsController extends Controller
         $reported_user = $_POST['reported_user'];
         $call_description = $_POST['call_description'];
 
-        $game = Game::findOrFail($gameID);
+        $game = Game::where('place_id', $gameID)->first();
 
         if($game->checkAuth($password)){
 
