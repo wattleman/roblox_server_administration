@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/game/checkAuth', 'ROBLOX_Requests\GameController@checkAuth')->name('roblox.requests.game.checkAuth');
+Route::post('/game/createCall', 'ROBLOX_Requests\CallsController@createCall')->name('roblox.requests.calls.create');
 
 // Route::post('/checkGameAuth', function() {
 
