@@ -24,6 +24,16 @@ class CreateCallsTable extends Migration
             $table->string('reported_user')->default('N/A');
             $table->longText('call_details')->nullable();
 
+            $table->integer('status')->unsigned()->default(1);
+                /*
+                1 = Open
+                2 = Dispatched
+                3 = Unable to Join
+                4 = Server Shutdown
+                5 = Responded Actions Taken
+                6 = Responded, No Actions Taken
+                */
+
             $table->timestamps();
 
             $table->foreign('place_id')->references('place_id')->on('games')->onDelete('cascade');
