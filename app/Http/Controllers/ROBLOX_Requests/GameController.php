@@ -8,7 +8,7 @@ use App\Game;
 
 class GameController extends Controller
 {
-    public function checkAuth($from = "roblox", $id, $password){
+    public function checkAuth($from = "roblox", $id = "", $password = ""){
 
         if($from == "roblox"){
             $_POST = json_decode(file_get_contents('php://input'), true);
