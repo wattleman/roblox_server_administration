@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/game/checkAuth', '/ROBLOX_Requests/GameController@checkAuth')->name('roblox.requests.game.checkAuth');
+Route::post('/game/checkAuth', 'ROBLOX_Requests\GameController@checkAuth')->name('roblox.requests.game.checkAuth');
 
 // Route::post('/checkGameAuth', function() {
 
