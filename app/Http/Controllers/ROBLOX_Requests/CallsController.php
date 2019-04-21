@@ -31,4 +31,12 @@ class CallsController extends Controller
             return response("Issue creating call.")->header('Content-Type', 'text-plain');
         }
     }
+
+    public function getBlacklistedCallers(){
+        $players = DB::table('call_blacklisted_players')->select('roblox_id')->get();
+
+        $players = JSON_encode($players);
+
+        return response($players)->header('Content-Type', 'application/json');
+    }
 }
