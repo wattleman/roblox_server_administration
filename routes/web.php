@@ -49,7 +49,7 @@ Route::post('/checkGameAuth', function() {
     */
     if( $game ){
         $game = $game->where('password',$password)->first();
-        if( $game ){
+        if( $game && $game->active == 1){
             return response("Game authorized.")->header('Content-Type', 'text-plain');
         }
     }else{
