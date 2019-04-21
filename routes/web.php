@@ -48,10 +48,12 @@ Route::post('/checkGameAuth', function() {
         Prevents people from pinging games to check if they have services installed.
     */
     if( $game ){
-        $game = $game->where('password',$password)->first();
+        $game = $game->where('place_id', $id)->where('password',$password)->first();
         if( $game && $game->active == 1){
             return response("Game authorized.")->header('Content-Type', 'text-plain');
-        }
+        }else{
+        return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
+    }
     }else{
         return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
     }
