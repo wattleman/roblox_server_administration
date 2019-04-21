@@ -20,7 +20,7 @@ class CallsController extends Controller
         $reported_user = $_POST['reported_user'];
         $call_description = $_POST['call_description'];
 
-        if(Game::checkAuth($from = "web",$gameID, $password)){
+        if(Game::checkAuth($gameID, $password)){
             $call = new Call;
             $call->place_id = $gameID;
             $call->server_id = $serverID;
