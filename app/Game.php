@@ -8,7 +8,7 @@ class Game extends Model
 {
 
     public function checkAuth($password){
-        if($game->password == $password && ($game->active == 1)){
+        if($this->password == $password && ($this->active == 1)){
             return true;
         }else{
             return false;
