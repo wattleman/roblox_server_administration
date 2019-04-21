@@ -10,7 +10,7 @@ class GameController extends Controller
 {
     public function checkAuth($from = "roblox", $id, $password){
 
-        if($from = "roblox"){
+        if($from == "roblox"){
             $_POST = json_decode(file_get_contents('php://input'), true);
              $id = $_POST['gameID'];
             $password = $_POST['password'];
