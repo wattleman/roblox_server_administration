@@ -22,47 +22,49 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/checkGameAuth', function() {
+Route::post('/game/checkAuth', '/ROBLOX_Requests/GameController@checkAuth')->name('roblox.requests.game.checkAuth');
 
-    $_POST = json_decode(file_get_contents('php://input'), true);
+// Route::post('/checkGameAuth', function() {
 
-    $id = $_POST['gameID'];
-    $password = $_POST['password'];
+//     $_POST = json_decode(file_get_contents('php://input'), true);
 
-    //$game = Game::Where('place_id', $id)->first();
+//     $id = $_POST['gameID'];
+//     $password = $_POST['password'];
 
-    /*Method to define if game exists and password is correct or not.
-    if( $game ){
-        $game = $game->where('password',$password)->first();
-        if( $game ){
-            return response("Game authorized.")->header('Content-Type', 'text-plain');
-        }else{
-            return response("Invalid password.")->header('Content-Type', 'text-plain');
-        }
-    }else{
-        return response("Game not found.")->header('Content-Type', 'text-plain');
-    }
-    */
+//     //$game = Game::Where('place_id', $id)->first();
 
-    /*Method to just desplay if authorized or not. Will respond with invalid credientials if wrong password or gameID
-        Prevents people from pinging games to check if they have services installed.
-    */
-    // if( $game ){
-    //     $game = $game->where('place_id', $id)->where('password',$password)->first();
-    //     if( $game && $game->active == 1){
-    //         return response("Game authorized.")->header('Content-Type', 'text-plain');
-    //     }else{
-    //     return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
-    // }
-    // }else{
-    //     return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
-    // }
+//     /*Method to define if game exists and password is correct or not.
+//     if( $game ){
+//         $game = $game->where('password',$password)->first();
+//         if( $game ){
+//             return response("Game authorized.")->header('Content-Type', 'text-plain');
+//         }else{
+//             return response("Invalid password.")->header('Content-Type', 'text-plain');
+//         }
+//     }else{
+//         return response("Game not found.")->header('Content-Type', 'text-plain');
+//     }
+//     */
 
-    $game = Game::Where('place_id', $id)->where('password',$password)->first();
-    if($game && ($game->active == 1)){
-        return response("Game authorized.")->header('Content-Type', 'text-plain');
-    }else{
-        return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
-    }
+//     /*Method to just desplay if authorized or not. Will respond with invalid credientials if wrong password or gameID
+//         Prevents people from pinging games to check if they have services installed.
+//     */
+//     // if( $game ){
+//     //     $game = $game->where('place_id', $id)->where('password',$password)->first();
+//     //     if( $game && $game->active == 1){
+//     //         return response("Game authorized.")->header('Content-Type', 'text-plain');
+//     //     }else{
+//     //     return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
+//     // }
+//     // }else{
+//     //     return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
+//     // }
 
-});
+//     // $game = Game::Where('place_id', $id)->where('password',$password)->first();
+//     // if($game && ($game->active == 1)){
+//     //     return response("Game authorized.")->header('Content-Type', 'text-plain');
+//     // }else{
+//     //     return response("Game-ID and/or Password is/are incorrect.")->header('Content-Type', 'text-plain');
+//     // }
+
+// });
