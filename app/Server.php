@@ -10,9 +10,9 @@ class Server extends Model
 
     public function verifyAuth($place_id, $ip_adr){
 
-        $server = Server::where('server_id', $place_id)->where('ip', $ip_adr)->get();
+        $server = Server::where('server_id', $place_id)->where('ip', $ip_adr)->first();
 
-        if(count($server) > 0){
+        if($server){
 
             $server->updated_at = now();
             $server->save();
