@@ -37,7 +37,6 @@ class CreateCallsTable extends Migration
             $table->timestamps();
 
             $table->foreign('place_id')->references('place_id')->on('games')->onDelete('cascade');
-            $table->foreign('server_id')->references('id')->on('servers')->onDelete('cascade');
         });
     }
 
