@@ -30,7 +30,7 @@ class GameController extends Controller
         $server_id = $_POST['serverID'];
         $ip_adr = request()->ip();
 
-        if(self::checkAuth($place_id, $password)){
+        if(self::verifyGameAuth($place_id, $password)){
 
             $game = Game::Where('place_id', $place_id)->where('password',$password)->first();
             $game_id = $game->id;
