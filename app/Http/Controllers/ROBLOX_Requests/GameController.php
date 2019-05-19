@@ -27,7 +27,7 @@ class GameController extends Controller
 
         $place_id = $_POST['placeID'];
         $password = $_POST['password'];
-        $server_id = $_POST['server_id'];
+        $server_id = $_POST['serverID'];
         $ip_adr = $_SERVER['REMOTE_ADDR'];
 
         $game = verifyGameAuth($place_id, $password);
