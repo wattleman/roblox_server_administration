@@ -14,7 +14,7 @@ class GameController extends Controller
 
         $game = Game::Where('place_id', $place_id)->where('password',$password)->first();
 
-        if($game && $game->acitve == 1){
+        if($game && ($game->active == 1)){
             return true;
         }else {
             return false; //Game is not set to active in the DB.
