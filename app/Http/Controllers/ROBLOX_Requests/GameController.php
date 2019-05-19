@@ -37,6 +37,8 @@ class GameController extends Controller
 
             if (Server::where('ip', $ip_adr)){
                 return response("[RoCall]: IP-Address Already in Use.")->header('Content-Type', 'text-plain');
+            }elseif(Server::where('server_id', $server_id)){
+                return response("[RoCall]: Server already initialized.")->header('Content-Type', 'text-plain');
             }
 
             $new_server = Server::create(['server_id' => $server_id, 'game_id' => $game_id, 'ip' => $ip_adr]);
