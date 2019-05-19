@@ -35,6 +35,10 @@ class GameController extends Controller
             $game = Game::Where('place_id', $place_id)->where('password',$password)->first();
             $game_id = $game->id;
 
+            if (Server::where('ip', $ip_adr)){
+                return response("[RoCall]: IP-Address Already in Use.")->header('Content-Type', 'text-plain');
+            }
+
             $new_server = Server::create(['server_id' => $server_id, 'game_id' => $game_id, 'ip' => $ip_adr]);
 
             return response("[RoCall]: IP-Address Set.")->header('Content-Type', 'text-plain');
