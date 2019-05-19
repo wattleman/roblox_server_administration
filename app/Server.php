@@ -15,6 +15,7 @@ class Server extends Model
         if(count($server) > 0){
 
             $server->updated_at = now();
+            $server->save();
 
             return true;
         }else{
