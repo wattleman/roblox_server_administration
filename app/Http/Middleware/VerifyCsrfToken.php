@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/game/checkAuth', '/game/createCall', '/game/getBlacklistedCallers'
+        '/game/checkAuth', '/game/createCall', '/game/getBlacklistedCallers', '/game/initialize_server'
     ];
 }
