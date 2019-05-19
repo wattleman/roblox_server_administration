@@ -28,7 +28,7 @@ class GameController extends Controller
         $place_id = $_POST['placeID'];
         $password = $_POST['password'];
         $server_id = $_POST['serverID'];
-        $ip_adr = $_SERVER['REMOTE_ADDR'];
+        $ip_adr = Request::ip();
 
         if(self::checkAuth($place_id, $password)){
 
