@@ -28,15 +28,16 @@ class GameController extends Controller
         $place_id = $_POST['placeID'];
         $password = $_POST['password'];
         $server_id = $_POST['server_id'];
+        $ip_adr = $_SERVER['REMOTE_ADDR'];
 
         $game = verifyGameAuth($place_id, $password);
         if($game != false){
 
             $game_id = $game->id;
 
-            $new_server = Server::create(['server_id' => $server_id, 'game_id' => $game_id]);
+            $new_server = Server::create(['server_id' => $server_id, 'game_id' => $game_id, 'ip' => $ip_adr]);
 
-            return response($new_server->token)->header('Content-Type', 'text-plain');
+            return response("[RoCall]: IP-Address Set.")->header('Content-Type', 'text-plain');
 
         }else{
             return response("[RoCall]: Game not authorized.")->header('Content-Type', 'text-plain');

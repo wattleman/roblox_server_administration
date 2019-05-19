@@ -17,7 +17,7 @@ class CreateServersTable extends Migration
             $table->increments('id');
             $table->string('server_id')->default("Error");
             $table->bigInteger('game_id')->unsigned();
-            $table->string('token')->default(str_random(10));
+            $table->string('ip', 15)->default("");
 
 
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
