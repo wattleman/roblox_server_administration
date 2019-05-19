@@ -30,7 +30,7 @@ class GameController extends Controller
         $server_id = $_POST['serverID'];
         $ip_adr = $_SERVER['REMOTE_ADDR'];
 
-        $game = verifyGameAuth($place_id, $password);
+        $game = self::verifyGameAuth($place_id, $password);
         if($game != false){
 
             $game_id = $game->id;
