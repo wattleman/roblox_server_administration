@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/game/initialize_server', 'ROBLOX_Requests\GameController@initialize_server')->name('roblox.requests.game.initialize_server');
-Route::get('/game/serverCheckin', 'ROBLOX_Requests\GameController@serverCheckin')->name('roblox.requests.game.serverCheckin');
+Route::post('/game/serverCheckin', 'ROBLOX_Requests\GameController@serverCheckin')->name('roblox.requests.game.serverCheckin');
 
 
 Route::post('/game/createCall', 'ROBLOX_Requests\CallsController@createCall')->name('roblox.requests.calls.create');

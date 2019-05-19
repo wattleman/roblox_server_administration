@@ -53,8 +53,8 @@ class GameController extends Controller
     }
 
     public function serverCheckin(){
-        $_GET = json_decode(file_get_contents('php://input'), true);
-        $server_id = $_GET['serverID'];
+        $_POST = json_decode(file_get_contents('php://input'), true);
+        $server_id = $_POST['serverID'];
         $ip_adr = request()->ip();
 
         $server = Server::where('server_id', $server_id)->first();
