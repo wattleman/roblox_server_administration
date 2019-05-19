@@ -45,7 +45,7 @@ class GameController extends Controller
 
             $new_server = Server::create(['server_id' => $server_id, 'game_id' => $game_id, 'ip' => $ip_adr]);
 
-            return response("[RoCall]: IP-Address Set.")->header('Content-Type', 'text-plain');
+            return response("[RoCall]: IP-Address Set - Server Initialized")->header('Content-Type', 'text-plain');
 
         }else{
             return response("[RoCall]: Game not authorized.")->header('Content-Type', 'text-plain');
