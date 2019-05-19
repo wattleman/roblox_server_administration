@@ -37,9 +37,9 @@ class GameController extends Controller
             $game = Game::Where('place_id', $place_id)->where('password',$password)->first();
             $game_id = $game->id;
 
-            if (Server::where('ip', $ip_adr)->first()){
+            if ( count(Server::where('ip', $ip_adr)->all()) > 0 ){
                 return response("[RoCall]: IP-Address Already in Use.")->header('Content-Type', 'text-plain');
-            }elseif(Server::where('server_id', $server_id)->first()){
+            }elseif(count(Server::where('server_id', $server_id)->all()) > 0){
                 return response("[RoCall]: Server already initialized.")->header('Content-Type', 'text-plain');
             }
 
