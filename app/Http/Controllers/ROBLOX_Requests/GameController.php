@@ -59,7 +59,7 @@ class GameController extends Controller
 
         $server = Server::where('server_id', $server_id)->first();
 
-        if($server::verifyAuth($server_id, $ip_adr) == true){
+        if($server->verifyAuth($server_id, $ip_adr)){
             return response("[RoCall]: Server has successfully checked-in.")->header('Content-Type', 'text-plain');
         }else{
             return response("[RoCall]: Error when checking in.")->header('Content-Type', 'text-plain');
