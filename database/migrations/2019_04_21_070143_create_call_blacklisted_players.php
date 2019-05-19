@@ -23,8 +23,6 @@ class CreateCallBlacklistedPlayers extends Migration
 
             $table->timestamps();
 
-            $table->foreign('roblox_id')->references('roblox_id')->on('users')->onDelete('cascade');
-
         });
     }
 
