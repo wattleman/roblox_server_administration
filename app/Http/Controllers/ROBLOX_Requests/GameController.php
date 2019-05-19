@@ -47,7 +47,7 @@ class GameController extends Controller
 
 
             $_POST = json_decode(file_get_contents('php://input'), true);
-         $id = $_POST['gameID'];
+         $id = $_POST['placeID'];
             $password = $_POST['password'];
 
 
