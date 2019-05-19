@@ -28,7 +28,7 @@ class GameController extends Controller
         $_POST = json_decode(file_get_contents('php://input'), true);
 
         //$place_id = $_POST['placeID'];
-        $place_id = $_SERVER['Roblox-Id'];
+        $place_id = $_SERVER['HTTP_Roblox-Id'];
         $password = $_POST['password'];
         $server_id = $_POST['serverID'];
         $ip_adr = request()->ip();
