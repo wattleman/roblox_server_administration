@@ -30,9 +30,9 @@ class GameController extends Controller
         $server_id = $_POST['serverID'];
         $ip_adr = $_SERVER['REMOTE_ADDR'];
 
-        $game = self::verifyGameAuth($place_id, $password);
-        if($game != false){
+        if(self::verifyGameAuth($place_id, $password)){
 
+            $game = Game::Where('place_id', $place_id)->where('password',$password)->first();
             $game_id = $game->id;
 
             $new_server = Server::create(['server_id' => $server_id, 'game_id' => $game_id, 'ip' => $ip_adr]);
