@@ -30,9 +30,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () {
 
-            $date = new DateTime;
-            $date->modify('-5 minutes');
-            $formatted_date = $date->format('Y-m-d H:i:s');
+            $formatted_date = Carbon::now()->subMinutes(5)->toDateTimeString();
 
             Server::where('updated_at', '>=', $formatted_date)->delete();
         })->everyFiveMinutes();
