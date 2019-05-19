@@ -14,7 +14,7 @@ class CreateServersTable extends Migration
     public function up()
     {
         Schema::create('servers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('server_id')->default("Error");
             $table->bigInteger('game_id')->unsigned();
             $table->string('ip', 15)->default("");
