@@ -19,6 +19,7 @@ class CreateServersTable extends Migration
             $table->bigInteger('game_id')->unsigned();
             $table->string('ip', 15)->default("");
 
+            $table->timestamps();
 
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
         });
