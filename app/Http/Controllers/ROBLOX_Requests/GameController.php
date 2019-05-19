@@ -12,7 +12,7 @@ class GameController extends Controller
 
     public function verifyGameAuth($place_id, $password){
 
-        $game = Game::Where('place_id', $id)->where('password',$password)->first();
+        $game = Game::Where('place_id', $place_id)->where('password',$password)->first();
 
         if($game && $game->acitve == 1){
             return $game;
